@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FRIDAY</title>
+    <script>
+      if (window.location.protocol === "file:") {
+        window.location.replace("http://127.0.0.1:8765/");
+      }
+    </script>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <canvas id="holoCanvas" class="holo-canvas" aria-hidden="true"></canvas>
+    <div class="ambient-field" aria-hidden="true">
+      <div class="starfield"></div>
+      <div class="deep-space"></div>
+      <div class="circuit-grid"></div>
+      <div class="scan-sweep"></div>
+    </div>
+    <main class="shell">
+      <section class="command-deck" aria-label="FRIDAY console">
+        <div id="matrixRain" class="matrix-rain" aria-hidden="true"></div>
+        <header class="topbar">
+          <div class="brand-lockup">
+            <p id="assistantAcronym" class="eyebrow">Fast Responsive Intelligent Digital Assistant, Year-round</p>
+            <h1 id="assistantName">FRIDAY</h1>
+            <div class="signal-row" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="status-cluster">
+            <button id="voiceToggle" class="icon-button" type="button" title="Toggle wake listener">Voice</button>
+            <button id="browserMicToggle" class="icon-button" type="button" title="Use Chrome microphone">Chrome Mic</button>
+            <select id="micDeviceSelect" class="device-select" title="Microphone source" aria-label="Microphone source">
+              <option value="">Default mic</option>
+            </select>
+            <button id="muteSpeech" class="icon-button" type="button" title="Toggle speech">TTS</button>
+            <button id="interruptSpeech" class="icon-button" type="button" title="Interrupt speech">Stop</button>
+          </div>
+        </header>
+
+        <section class="hud-layout" aria-label="FRIDAY live systems">
+          <aside class="side-panel left-panel" aria-label="Core systems">
+            <div class="panel-heading">
+              <span>Core</span>
+              <strong>Local OS Layer</strong>
+            </div>
+            <div class="mini-radar" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="telemetry-stack">
+              <div class="telemetry-line">
+                <span>Voice Gate</span>
+                <i></i>
+              </div>
+              <div class="telemetry-line">
+                <span>Ollama Link</span>
+                <i></i>
+              </div>
+              <div class="telemetry-line">
+                <span>Tool Router</span>
+                <i></i>
+              </div>
+              <div class="telemetry-line">
+                <span>Transcript</span>
+                <i></i>
+              </div>
+            </div>
+            <div class="todo-panel" aria-label="Todo list">
+              <div class="todo-panel-head">
+                <span>Tasks</span>
+                <div class="todo-actions">
+                  <strong id="todoCount">0</strong>
+                  <button id="clearTasks" type="button" title="Clear active tasks">Clear</button>
+                </div>
+              </div>
+              <ul id="todoList" class="todo-list">
+                <li class="todo-empty">No active tasks</li>
+              </ul>
+            </div>
+          </aside>
+
+          <section class="orbital-readout" aria-label="System status">
+            <div class="reactor">
+              <div class="reactor-glow"></div>
+              <div class="reactor-ring ring-a"></div>
+              <div class="reactor-ring ring-b"></div>
+              <div class="reactor-ring ring-c"></div>
+              <div class="reactor-ring ring-d"></div>
+              <div class="talking-orb" aria-hidden="true">
+                <span class="speech-shell shell-a"></span>
+                <span class="speech-shell shell-b"></span>
+                <span class="speech-shell shell-c"></span>
+                <span class="speech-equator"></span>
+                <span class="speech-wave wave-a"></span>
+                <span class="speech-wave wave-b"></span>
+                <span class="speech-core"></span>
+              </div>
+              <div class="orbit-dot dot-a"></div>
+              <div class="orbit-dot dot-b"></div>
+              <div class="orbit-dot dot-c"></div>
+              <div class="reactor-core">
+                <span>F</span>
+              </div>
+              <div id="micVisualizer" class="mic-visualizer" aria-label="Microphone activity">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="metrics">
+              <div>
+                <span>Mode</span>
+                <strong id="modeValue">Asleep</strong>
+              </div>
+              <div>
+                <span>Persona</span>
+                <strong id="toneValue">Respectful</strong>
+              </div>
+              <div>
+                <span>Queue</span>
+                <strong id="queueValue">0</strong>
+              </div>
+              <div>
+                <span>Voice</span>
+                <strong id="voiceValue">Idle</strong>
+              </div>
+              <div>
+                <span>Control</span>
+                <strong id="controlValue">Idle</strong>
+              </div>
+            </div>
+          </section>
+
+          <aside class="side-panel right-panel" aria-label="Mission console">
+            <div class="panel-heading">
+              <div>
+                <span>Mission Log</span>
+                <strong>Live Transcript</strong>
+              </div>
+              <button id="clearChat" class="clear-chat-button" type="button" title="Clear visible chat">Clear</button>
+            </div>
+            <section id="transcript" class="transcript" aria-label="Transcript"></section>
+          </aside>
+        </section>
+
+        <section class="control-deck" aria-label="Command controls">
+          <div class="tone-row" aria-label="Tone controls">
+            <button data-tone="neutral" type="button">Neutral</button>
+            <button data-tone="professional" type="button">Professional</button>
+            <button data-tone="formal" type="button">Formal</button>
+            <button data-tone="light-hearted" type="button">Light</button>
+          </div>
+
+          <div id="uploadConsole" class="upload-console" aria-label="Visual file upload">
+            <button id="fileUploadButton" class="upload-button" type="button" title="Upload screenshot or video">Upload</button>
+            <input id="fileInput" type="file" accept="image/*,video/*" hidden />
+            <div id="filePreview" class="file-preview" hidden>
+              <span id="filePreviewName">No file</span>
+              <small id="filePreviewMeta">Vision ready</small>
+              <button id="filePreviewClear" type="button" title="Clear selected file">Clear</button>
+            </div>
+          </div>
+
+          <form id="commandForm" class="command-form">
+            <input id="commandInput" autocomplete="off" placeholder="FRIDAY, check status or ask about an upload" />
+            <button type="submit">Send</button>
+          </form>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

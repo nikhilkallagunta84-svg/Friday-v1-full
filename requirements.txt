@@ -1,0 +1,6 @@
+faster-whisper
+numpy
+playwright
+pyautogui
+pyperclip
+sounddevice

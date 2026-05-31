@@ -1,0 +1,52 @@
+{
+  "always_on_mic": true,
+  "stt": {
+    "beam_size": 5,
+    "best_of": 5,
+    "delete_temp_audio": true,
+    "engine": "faster-whisper",
+    "fallback_engine": "whisper.cpp",
+    "initial_prompt": "Friday Jarvis open close switch search Google YouTube Spotify Instagram browser tab app stop cancel pause solve explain upload screenshot answer question math",
+    "no_speech_threshold": 0.45,
+    "patience": 1.15,
+    "vad_min_silence_ms": 900,
+    "vad_speech_pad_ms": 300,
+    "model": "base.en"
+  },
+  "tts": {
+    "allow_interruption": true,
+    "engine": "macos_say",
+    "fallback_engine": "pyttsx3",
+    "premium_free_engine": "piper",
+    "prevent_overlap": true,
+    "print_before_speak": true,
+    "rate": 185,
+    "voice_name": ""
+  },
+  "vad": {
+    "follow_up_timeout_seconds": 6,
+    "max_command_seconds": 60,
+    "min_speech_ms": 250,
+    "sample_rate": 16000,
+    "silence_end_ms": 2000,
+    "speech_pad_ms": 250,
+    "wake_activation_window_seconds": 12,
+    "wake_chunk_seconds": 3.0
+  },
+  "wake_word": {
+    "activation_timeout_seconds": 8,
+    "alternates": [
+      "hey friday",
+      "yo friday",
+      "okay friday",
+      "jarvis",
+      "hey jarvis"
+    ],
+    "confidence_threshold": 0.65,
+    "cooldown_ms": 1500,
+    "enabled": true,
+    "primary": "friday",
+    "use_openwakeword": true,
+    "use_stt_fallback": true
+  }
+}

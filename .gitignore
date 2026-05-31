@@ -1,0 +1,45 @@
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# FRIDAY runtime state
+.friday/
+transcripts/
+logs/
+.friday.log
+.friday.pid
+
+# Browser, screenshots, and temporary automation output
+browser-profile/
+browser-screenshots/
+screen-screenshots/
+playwright-report/
+test-results/
+*.webm
+*.trace.zip
+
+# Local editor/system files
+.DS_Store
+.claude/
+.vscode/
+.idea/
+
+# OS/runtime scratch
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+

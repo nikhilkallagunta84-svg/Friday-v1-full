@@ -1,0 +1,8 @@
+{
+  "city": "Bentonville",
+  "latitude": 36.3729,
+  "longitude": -94.2088,
+  "state": "Arkansas",
+  "timezone": "America/Chicago",
+  "weather_provider": "open_meteo"
+}
